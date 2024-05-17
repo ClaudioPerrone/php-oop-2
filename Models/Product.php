@@ -1,28 +1,36 @@
 <?php
 
-    class Product {
+class Product {
+    private $name;
+    private $image;
+    private $description;
+    private $price;
 
-        public $image;
-        public $title;
-        public $price;
-        public $icon;
-        public $type;
-
-        public function __construct($_image, $_title, $_price, $_icon, $_type) {
-            $this->image = $_image;
-            $this->title = $_title;
-            $this->price = $_price;
-            $this->icon = $_icon;
-            $this->type = $_type;
-        }
-
-        public function getProduct() {
-            return  'Immagine: ' . $this->image . '<br>' .
-                    'Titolo: ' . $this->title . '<br>' .
-                    'Prezzo: ' . $this->price . '<br>' .
-                    'Icona: ' . $this->icon . '<br>' .
-                    'Tipologia: ' . $this->type . '<br>';
-        }
+    public function __construct($name, $image, $description, $price) {
+        $this->name = $name;
+        $this->image = $image;
+        $this->description = $description;
+        $this->price = $price;
     }
 
-?>
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getImage() {
+        return $this->image;
+    }
+
+    public function getDescription() {
+        return $this->description;
+    }
+
+    public function getPrice() {
+        return $this->price;
+    }
+
+    // Metodi specifici per i sottotipi, di default vuoti
+    public function getSpecificDetails() {
+        return '';
+    }
+}
