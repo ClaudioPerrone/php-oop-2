@@ -1,10 +1,14 @@
 <?php
 
+require_once __DIR__ . '/../Traits/Discount.php';
+
 class Product {
+    use Discount;
+
     private $name;
     private $image;
     private $description;
-    private $price;
+    protected $price;
 
     public function __construct($name, $image, $description, $price) {
         $this->name = $name;

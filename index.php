@@ -10,6 +10,12 @@ $cat_food = new Food('Scatolette', 'https://picsum.photos/200', 'Scatolette per 
 $dog_toy = new Game('Osso di gomma', 'https://picsum.photos/200', 'Osso di gomma per cani', 5.99, 'gomma', 'rosso');
 $cat_toy = new Game('Pallina', 'https://picsum.photos/200', 'Pallina per gatti', 3.99, 'plastica', 'giallo');
 
+// Applica sconti
+$dog_food->setDiscount(10);
+$cat_food->setDiscount(5);
+$dog_toy->setDiscount(20);
+$cat_toy->setDiscount(15);
+
 $products = [
     $dog_food, 
     $cat_food, 
@@ -38,7 +44,7 @@ $products = [
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $product->getName(); ?></h5>
                             <p class="card-text"><?php echo $product->getDescription(); ?></p>
-                            <p class="card-text">Prezzo: €<?php echo $product->getPrice(); ?></p>
+                            <p class="card-text">Prezzo: €<?php echo $product->getPriceAfterDiscount(); ?> (scontato)</p>
                             <?php echo $product->getSpecificDetails(); ?>
                         </div>
                     </div>
@@ -48,4 +54,3 @@ $products = [
     </div>
 </body>
 </html>
-
